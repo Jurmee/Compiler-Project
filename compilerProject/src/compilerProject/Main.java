@@ -1,5 +1,8 @@
 package compilerProject;
-import java.nio.file.*;;
+import java.nio.file.*;
+import java.util.ArrayList;
+
+import compilerProject.Lexigram.Token;;
 
 public class Main
 {
@@ -8,14 +11,16 @@ public class Main
 	{
 	
 		//This converts file into a string 
-		String data = new String(Files.readAllBytes(Paths.get("C:\\Users\\Jeremy\\Desktop\\Compilers Repo\\Compiler-Project\\compilerProject\\src\\compilerProject\\compilerTest.txt")));
+		String data = new String(Files.readAllBytes(Paths.get("src/compilerProject/compilerTest.txt")));
 		
 		 
 		Lexigram file = new Lexigram(data);
 		
 		//testing purposes
-		System.out.println(file.getData());
-
+		ArrayList<Token> tokens = file.lexList();
+		for(Token token : tokens)
+			System.out.println(token);
+		
 	}
 
 	
